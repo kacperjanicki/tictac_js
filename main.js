@@ -39,8 +39,9 @@ clear.addEventListener('click',()=>{
 })
 
 function checkWinner(matrix){
+    //ROW
     for(level in matrix){
-        console.log(matrix[level])
+        // console.log(matrix[level])
         const allEqual = arr => arr.every( v => v === arr[0] )
 
         const initialValue = 0
@@ -48,6 +49,7 @@ function checkWinner(matrix){
             (previousValue, currentValue) => previousValue + currentValue,
             initialValue
           );
+
         if(allEqual(matrix[level]) && sumWithInitial != 0){ //if user has won based on row
             const result = document.querySelector("#result")
             result.innerHTML = `${matrix[level][0]} has won`
@@ -55,9 +57,41 @@ function checkWinner(matrix){
             return `${matrix[level][0]} has won, row`
         }
         }
+    var container=[]
+    var container2=[]
+    var new_matrix=[]
+    //CROSS
+    for(level in matrix){
+        console.log(matrix[level])
+        container.push(matrix[level][level])      
     }
+    for(let i=matrix.length;i>=0;i--){
+        new_matrix.push(matrix[i-1])
+    }
+    new_matrix.splice(-1,1)
+    for(level in new_matrix){
+        // console.log(new_matrix[level])
+        container2.push(String(new_matrix[level][level]))      
+    }
+    console.log(`left cross: ${container.join("")}`)
+    console.log(`right cross:[${container2}]`)
+    if(container.join("")=="OOO" || container.join("")=="XXX"){
+        result.innerHTML = `${container[0]} has won`
+        can_click=false
+        return `${container[0]} wins, cross`
 
+    }else if(container2.join("")=="OOO"||container2.join("")=="XXX"){
+        result.innerHTML = `${container2[0]} has won`
+        can_click=false
+        return `${container2[0]} wins, cross`
+    }
+   
+    
 
+    
+}
+
+checkWinner(table)
 
 function addToMatrix(user_input,dataset) {
     console.log(`${user_input} was placed at ${dataset.row} row, ${dataset.column} column`)
@@ -66,6 +100,7 @@ function addToMatrix(user_input,dataset) {
     console.log(checkWinner(table))
 
 }
+
 
 
 
