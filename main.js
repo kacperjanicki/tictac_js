@@ -62,7 +62,6 @@ function checkWinner(matrix){
     var new_matrix=[]
     //CROSS
     for(level in matrix){
-        console.log(matrix[level])
         container.push(matrix[level][level])      
     }
     for(let i=matrix.length;i>=0;i--){
@@ -70,11 +69,10 @@ function checkWinner(matrix){
     }
     new_matrix.splice(-1,1)
     for(level in new_matrix){
-        // console.log(new_matrix[level])
         container2.push(String(new_matrix[level][level]))      
     }
-    console.log(`left cross: ${container.join("")}`)
-    console.log(`right cross:[${container2}]`)
+    // console.log(`left cross: ${container.join("")}`)
+    // console.log(`right cross:[${container2}]`)
     if(container.join("")=="OOO" || container.join("")=="XXX"){
         result.innerHTML = `${container[0]} has won`
         can_click=false
@@ -84,6 +82,29 @@ function checkWinner(matrix){
         result.innerHTML = `${container2[0]} has won`
         can_click=false
         return `${container2[0]} wins, cross`
+    }
+    //COLUMN
+    var col=[]
+    var col2=[]
+    var col3=[]
+    for(level in matrix){
+        col.push(matrix[level][0])
+        col2.push(matrix[level][1])
+        col3.push(matrix[level][2])
+    }
+    console.log(col,col2,col3)
+    if(col.join("")=="OOO"||col.join("")=="XXX"){
+        result.innerHTML = `${col[0]} has won`
+        can_click=false
+        return `${col[0]} wins, col`
+    } else if(col2.join("")=="OOO"||col2.join("")=="XXX"){
+        result.innerHTML = `${col2[0]} has won`
+        can_click=false
+        return `${col2[0]} wins, col`
+    }else if(col3.join("")=="OOO"||col3.join("")=="XXX"){
+        result.innerHTML = `${col3[0]} has won`
+        can_click=false
+        return `${col3[0]} wins, col` 
     }
    
     
