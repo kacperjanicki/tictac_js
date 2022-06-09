@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="choose">You are:<br>
+        <button class="choose" id="x">X</button>
+        <button class="choose" id="o">O</button><br><br>
+        <section id="result"></section>
+    </div>
+    <div id="container">
+        <div class="box"><button data-row="1" data-column="1" class="butt"></button></div>
+        <div class="box"><button data-row="1" data-column="2" class="butt"></button></div>
+        <div class="box"><button data-row="1" data-column="3" class="butt"></button></div>
+        <div class="box"><button data-row="2" data-column="1" class="butt"></button></div>
+        <div class="box"><button data-row="2" data-column="2" class="butt"></button></div>
+        <div class="box"><button data-row="2" data-column="3"class="butt"></button></div>
+        <div class="box"><button data-row="3" data-column="1" class="butt"></button></div>
+        <div class="box"><button data-row="3" data-column="2"class="butt"></button></div>
+        <div class="box"><button data-row="3" data-column="3" class="butt"></button></div>
+    </div>
+    <button id="clear" onclick="clear()">Clear</button>
+    
+    <script src="main.js"></script>
+</body>
+</html>

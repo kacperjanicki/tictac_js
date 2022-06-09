@@ -1,0 +1,26 @@
+#container {
+    border:2px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+}
+.butt {
+    height: 50px;
+    width: 100px;
+}
+#choose {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#clear {
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
